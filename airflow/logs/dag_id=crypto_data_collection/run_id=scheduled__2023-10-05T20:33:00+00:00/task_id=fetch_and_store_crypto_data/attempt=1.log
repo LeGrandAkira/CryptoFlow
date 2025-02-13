@@ -1,0 +1,21 @@
+[2025-02-12T22:51:04.808+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-02-12T22:51:04.819+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: crypto_data_collection.fetch_and_store_crypto_data scheduled__2023-10-05T20:33:00+00:00 [queued]>
+[2025-02-12T22:51:04.825+0000] {taskinstance.py:2614} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: crypto_data_collection.fetch_and_store_crypto_data scheduled__2023-10-05T20:33:00+00:00 [queued]>
+[2025-02-12T22:51:04.825+0000] {taskinstance.py:2867} INFO - Starting attempt 1 of 2
+[2025-02-12T22:51:04.835+0000] {taskinstance.py:2890} INFO - Executing <Task(PythonOperator): fetch_and_store_crypto_data> on 2023-10-05 20:33:00+00:00
+[2025-02-12T22:51:04.840+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=21891) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-02-12T22:51:04.841+0000] {standard_task_runner.py:72} INFO - Started process 21896 to run task
+[2025-02-12T22:51:04.840+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'crypto_data_collection', 'fetch_and_store_crypto_data', 'scheduled__2023-10-05T20:33:00+00:00', '--job-id', '7543', '--raw', '--subdir', 'DAGS_FOLDER/crypto_dag.py', '--cfg-path', '/tmp/tmpzrzhirxl']
+[2025-02-12T22:51:04.842+0000] {standard_task_runner.py:105} INFO - Job 7543: Subtask fetch_and_store_crypto_data
+[2025-02-12T22:51:04.871+0000] {task_command.py:467} INFO - Running <TaskInstance: crypto_data_collection.fetch_and_store_crypto_data scheduled__2023-10-05T20:33:00+00:00 [running]> on host be7ba0dd3a47
+[2025-02-12T22:51:04.932+0000] {taskinstance.py:3134} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='crypto_data_collection' AIRFLOW_CTX_TASK_ID='fetch_and_store_crypto_data' AIRFLOW_CTX_EXECUTION_DATE='2023-10-05T20:33:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2023-10-05T20:33:00+00:00'
+[2025-02-12T22:51:04.933+0000] {taskinstance.py:732} INFO - ::endgroup::
+[2025-02-12T22:51:05.956+0000] {logging_mixin.py:190} INFO - Données récupérées : {'Response': 'Error', 'Message': 'You are over your rate limit please upgrade your account!', 'HasWarning': False, 'Type': 99, 'RateLimit': {'calls_made': {'second': 1, 'minute': 20, 'hour': 6126, 'day': 7020, 'month': 7020, 'total_calls': 7020}, 'max_calls': {'second': 20, 'minute': 300, 'hour': 3000, 'day': 7500, 'month': 11000}}, 'Data': {}}
+[2025-02-12T22:51:05.963+0000] {logging_mixin.py:190} INFO - Erreur lors de l'insertion dans PostgreSQL : string indices must be integers, not 'str'
+[2025-02-12T22:51:05.992+0000] {logging_mixin.py:190} INFO - Données uploadées dans MinIO.
+[2025-02-12T22:51:05.994+0000] {python.py:240} INFO - Done. Returned value was: None
+[2025-02-12T22:51:06.012+0000] {taskinstance.py:341} INFO - ::group::Post task execution logs
+[2025-02-12T22:51:06.013+0000] {taskinstance.py:353} INFO - Marking task as SUCCESS. dag_id=crypto_data_collection, task_id=fetch_and_store_crypto_data, run_id=scheduled__2023-10-05T20:33:00+00:00, execution_date=20231005T203300, start_date=20250212T225104, end_date=20250212T225106
+[2025-02-12T22:51:06.104+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-02-12T22:51:06.124+0000] {taskinstance.py:3901} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-02-12T22:51:06.126+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

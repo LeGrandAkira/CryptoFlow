@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pandas
+matplotlib
+plotly
+psycopg2-binary
+seaborn
+jinja2

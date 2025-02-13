@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphique Crypto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1E1E1E;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            color: #00ff88;
+        }
+
+        form {
+            background-color: #2C2C2C;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #3C3C3C;
+            color: white;
+            font-size: 1rem;
+        }
+
+        input[type="text"]:focus,
+        select:focus {
+            border-color: #00ff88;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #00ff88;
+            color: #1E1E1E;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00cc66;
+        }
+
+        .graph-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .graph-container img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .error {
+            color: #ff4444;
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            form {
+                padding: 15px;
+            }
+
+            input[type="text"],
+            select {
+                font-size: 0.9rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Graphique des prix des cryptomonnaies</h1>
+    <form action="/graph" method="get">
+        <label for="monnaie">Cryptomonnaie :</label>
+        <input type="text" id="monnaie" name="monnaie" placeholder="Exemple : bitcoin, ethereum" required>
+        
+        <label for="duree">Durée :</label>
+        <select id="duree" name="duree">
+            <option value="5 minutes">5 minutes</option>
+            <option value="1 hour">1 heure</option>
+            <option value="1 day">1 jour</option>
+            <option value="7 days">7 jours</option>
+        </select>
+        
+        <button type="submit">Générer le graphique</button>
+    </form>
+
+    {% if image %}
+        <div class="graph-container">
+            <img src="data:image/png;base64,{{ image }}" alt="Graphique des prix">
+        </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error">
+            {{ error }}
+        </div>
+    {% endif %}
+</body>
+</html>
