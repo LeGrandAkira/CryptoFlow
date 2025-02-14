@@ -1,6 +1,8 @@
 # CryptoFlow: Real-time Crypto Data Pipeline
 
 ## 🚀 Overview
+
+![CryptoFlow Logo](logo.png)
 CryptoFlow is a real-time cryptocurrency data pipeline built with FastAPI, Apache Airflow, PostgreSQL, and MinIO. It fetches live crypto prices, stores them in a database, and provides a FastAPI-powered API to retrieve data and visualize price trends.
 
 ## 🛠 Tech Stack
@@ -12,7 +14,7 @@ CryptoFlow is a real-time cryptocurrency data pipeline built with FastAPI, Apach
 - **Pandas, Matplotlib & Seaborn** - Data analysis & visualization
 
 ## 📸 Screenshots
-![CryptoFlow Logo](logo.png)
+![Screenshot](Graphique-Crypto-02-14-2025_08_16_PM.png)
 
 ## 📦 Installation
 ### Prerequisites
